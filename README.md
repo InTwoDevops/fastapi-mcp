@@ -1,6 +1,6 @@
 # Reminders API
 
-A simple FastAPI application with basic CRUD operations for reminders, using MongoDB as the database.
+A simple FastAPI application with basic CRUD operations for reminders, using MongoDB as the database with support for MCP acting as a MCP Server.
 
 ## Features
 
