@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
 import uuid
+from fastapi_mcp import FastApiMCP
 
 # Improved API metadata
 app = FastAPI(
@@ -14,6 +15,10 @@ app = FastAPI(
     redoc_url="/redoc",
     openapi_url="/openapi.json"
 )
+
+mcp = FastApiMCP(app)
+
+mcp.mount()
 
 # MongoDB connection
 @app.on_event("startup")
@@ -188,3 +193,5 @@ async def delete_reminder(reminder_id: str):
             detail=f"Reminder with ID {reminder_id} not found"
         )
     return None 
+
+mcp.setup_server()
